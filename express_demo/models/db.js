@@ -9,4 +9,4 @@ var Connection = require("mongodb").Connection;
 //得到服务对象
 var server = require('mongodb').Server;
 //创建链接对象
-module.exports = new Db(setting.db,new Server(setting.host,Connection.DEFAULT_PORT))
+module.exports = new Db(setting.db,new Server(setting.host,Connection.DEFAULT_PORT));
