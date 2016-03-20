@@ -17,7 +17,7 @@ Post.find = function(username,callback){
         }
 
         //读取posts文档
-        db.collection("posts",function(err,collection){
+        db.collection("Users",function(err,collection){
             if(err){
                 mongodb.close();
                 return callback(err);

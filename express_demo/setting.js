@@ -4,5 +4,6 @@
 module.exports = {
     cookieSecret:"express_demo",
     db:"mytest",
-    host:"localhost"
+    host:"localhost",
+    port:27017
 };
