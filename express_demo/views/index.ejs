@@ -1,10 +1,15 @@
+<!DOCTYPE html>
 <html>
-<body>
-<form action="http://127.0.0.1:3000/process_get" method="GET">
-  First Name: <input type="text" name="first_name">  <br>
+<head>
+  <title><%= title %></title>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='./css/style.css' />
+  <script src="/jquery/jquery.js"></script>
 
-  Last Name: <input type="text" name="last_name">
-  <input type="submit" value="Submit">
-</form>
+</head>
+<body>
+<h1><%= title %></h1>
+<p class="ui-index-blue">Welcome to <%= title %></p>
+<button id="button" value="button"></button>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='./css/style.css' />
+    <script src="./javascripts/jquery.js"></script>
+    <script src="./javascripts/ejs.js"></script>
+</head>
+<body>
+<h1><%= title %></h1>
+
+<div><%= data.key%></div>
+
+
+<p class="ui-index-blue">Welcome to <%= title %></p>
+<!--<form action="http://10.0.1.209:3000/testRouter" method="get">-->
+    <input name="username" value="name">
+    <input name="password" value="pass">
+    <button id="button" value="button"></button>
+<!--</form>-->
+
+<script>
+    $('#button').on('click', function(){
+        $.ajax({
+            url: '/testa',
+            type:'get',
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                // document.title=data.title;
+
+            },
+            error:function(err){
+
+            }
+        })
+    });
+
+</script>
+</body>
+</html>
