@@ -17,13 +17,9 @@ router.use('/testa', function(req, res ,next) {
 });
 
 router.get('/testRouter', function(req, res,next) {
-    //use.send('test');
 
     res.set('Content-Type', 'application/json');
     //res.render('test',{title:"ooooooooo"});
-    setTimeout(function(){
-        res.redirect('/index');
-    },1000)
 
 });
 

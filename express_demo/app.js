@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var test = require('./routes/test');
+var _html = require('./routes/router');
 var app = express();
 var methodOverride = require('method-override');
 // view engine setup
@@ -25,7 +26,7 @@ app.use(methodOverride());
 app.use('/', routes);
 app.use('/', users);
 app.use('/', test);
-
+app.use('/', _html);
 /*此处为全局引入jquery*/
 app.get('/jquery/jquery.js', function(req, res) {
   res.sendfile(__dirname + '/node_modules/jquery/dist/jquery.js');

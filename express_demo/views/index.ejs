@@ -4,12 +4,52 @@
   <title><%= title %></title>
   <meta charset="UTF-8">
   <link rel='stylesheet' href='./css/style.css' />
+  <link rel='stylesheet' href='./css/bootstrap.css' />
   <script src="/jquery/jquery.js"></script>
-
 </head>
 <body>
-<h1><%= title %></h1>
-<p class="ui-index-blue">Welcome to <%= title %></p>
-<button id="button" value="button"></button>
+<div class="container">
+  <% include header.ejs %>
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-12">
+        <h1 class="title">
+          Conversational UX platform. <br>Now we're talking!
+        </h1>
+        <h2 class="subtitle">
+          Build intelligent speech interfaces<br>for
+          <span class="emphasis">apps</span>,
+          <span class="emphasis">devices</span>, and
+          <span class="emphasis">web</span>
+        </h2>
+
+        <div class="btn-wrap">
+          <a class="btn btn-warning"  id="test">Get Started for Free</a>
+          <a class="btn btn-video youtube">Watch Video</a>
+        </div>
+        <div class="video-wrapper"><div id="youtube-frame"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <% include footer.ejs %>
+</div>
+<script>
+    $("#test").click(function(){
+        $.ajax({
+            url: '/removeData',
+            type:'get',
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                // document.title=data.title;
+
+            },
+            error:function(err){
+
+            }
+        })
+    });
+</script>
 </body>
 </html>
