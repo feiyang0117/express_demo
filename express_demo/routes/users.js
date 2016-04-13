@@ -3,20 +3,35 @@ var router = express.Router();
 var user = require('../models/User');
 
 /* GET users listing. */
-
+var obj ;
 router.use('/insert', function(req, res, next) {
-    user.update(function (rs){
+
+    console.log("=======",req.body.username);
+    var users = {
+        username:req.body.username,
+        password:req.body.password
+    };
+
+    user.insert(users,function (rs){
         var data = JSON.stringify(rs);
-        res.end(data)
+        obj = rs;
+        res.redirect("/home");
+        console.log(data);
+        //res.end()
+        next(data)
     });
 });
 
-
+router.get('/home', function(req, res, next) {
+    console.log(typeof(obj));
+    res.render('home', { title: obj.message});
+    res.redirect('/login');
+});
 
 router.use('/getData', function(req, res, next) {
-    res.setHeader('Content-Type','application/json;charset=UTF-8');
     user.getData(function (rs){
         var data = JSON.stringify(rs);
+        console.log(rs);
         res.render('login',{title:"caonima",data:data});
         //res.setHeader("content-type")
         //res.redirect('home');
@@ -25,7 +40,6 @@ router.use('/getData', function(req, res, next) {
 
 
 router.use('/removeData', function(req, res, next) {
-    res.setHeader('Content-Type','application/json;charset=UTF-8');
     user.delete(function(rs){
         if(rs.success){
             var data = {success:true,message:"删除成功"};

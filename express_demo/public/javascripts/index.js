@@ -4,8 +4,19 @@
 /*
 * index.ejs
 * */
-console.log(121212)
-$("#button").click(function(){
+$("#test").click(function(){
     alert(0);
-});
+    $.ajax({
+        url: '/removeData',
+        type:'get',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data);
+            // document.title=data.title;
 
+        },
+        error:function(err){
+
+        }
+    })
+});

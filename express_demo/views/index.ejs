@@ -1,55 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= title %></title>
-  <meta charset="UTF-8">
-  <link rel='stylesheet' href='./css/style.css' />
-  <link rel='stylesheet' href='./css/bootstrap.css' />
-  <script src="/jquery/jquery.js"></script>
-</head>
-<body>
-<div class="container">
-  <% include header.ejs %>
-  <div class="container">
-    <div class="row">
-      <div class="col col-md-12">
-        <h1 class="title">
-          Conversational UX platform. <br>Now we're talking!
-        </h1>
-        <h2 class="subtitle">
-          Build intelligent speech interfaces<br>for
-          <span class="emphasis">apps</span>,
-          <span class="emphasis">devices</span>, and
-          <span class="emphasis">web</span>
-        </h2>
-
-        <div class="btn-wrap">
-          <a class="btn btn-warning"  id="test">Get Started for Free</a>
-          <a class="btn btn-video youtube">Watch Video</a>
+<%include header.ejs%><div class="container">
+    <div class="page-header">
+        <div id="navbar" class="collapse navbar-collapse">
+            <a class="btn btn-default qb login_btn " href="/login" data-form="loginform">登录</a>
+            <a class="btn btn-primary qb reg ">注册</a>
         </div>
-        <div class="video-wrapper"><div id="youtube-frame"></div></div>
-      </div>
     </div>
-  </div>
-
-  <% include footer.ejs %>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-respond">
+            <li class="active"><a href="/home">首页</a></li>
+            <li><a>关于</a></li>
+            <li><a>服务</a></li>
+            <li><a>方案</a></li>
+            <li><a>客户</a></li>
+            <li><a>联系</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="tel:400-6650-361" title="全国统一客服热线：400-6650-361"><span class="segmdl2 segmdl2-Phone"></span>188-0125-7256</a></li>
+        </ul>
+    </div>
+    <button id="test">test</button>
 </div>
-<script>
-    $("#test").click(function(){
-        $.ajax({
-            url: '/removeData',
-            type:'get',
-            dataType: 'JSON',
-            success: function (data) {
-                console.log(data);
-                // document.title=data.title;
-
-            },
-            error:function(err){
-
-            }
-        })
-    });
-</script>
-</body>
-</html>
+<script type="text/javascript" src="/javascripts/index.js"></script>
+<% include footer.ejs%>

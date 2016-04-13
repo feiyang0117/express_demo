@@ -14,7 +14,7 @@ var methodOverride = require('method-override');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('Content-Type', 'application/json;text/plain');
+app.set('Content-Type','text/javascript;charset=UTF-8');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -27,6 +27,7 @@ app.use('/', routes);
 app.use('/', users);
 app.use('/', test);
 app.use('/', _html);
+
 /*此处为全局引入jquery*/
 app.get('/jquery/jquery.js', function(req, res) {
   res.sendfile(__dirname + '/node_modules/jquery/dist/jquery.js');
