@@ -1,4 +1,53 @@
 <%include header.ejs %>
-<h1><%= title %>home页面</h1>
+<header>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a>Home</a></li>
+        <li role="presentation" id="tap"><a>Profile</a></li>
+        <li role="presentation"><a>Messages</a></li>
+    </ul>
+</header>
+<div>
+    <h1><%= title %>home页面</h1>
+</div>
+<footer class="main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="widget">
+                    <h4 class="title">友情链接</h4>
+                    <div class="content friend-links">
+                        <a title="Bootstrap中文网">Bootstrap中文网</a>
+                        <a title="Laravel中文网">Laravel中文网</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="widget">
+                    <h4 class="title">我们用到的技术</h4>
+                    <div class="content tag-cloud">
+                        <a title="Bootstrap中文网" >Bootstrap</a>
+                        <a title="Ghost中国" >Ghost</a>
+                        <a title="BootCDN" >BootCDN</a>
+                        <a title="Grunt中文网" >Grunt</a>
+                        <a title="jQuery中文文档" >jQuery</a>
+                        <a title="Babeljs中文网" >Babeljs</a>
+                        <a title="lodash中文网" >Lodash</a>
+                        <a title="Gulp中文网" >Gulp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="widget">
+                    <h4 class="title">赞助商</h4>
+                    <div class="content friend-links">
+                        <a title="又拍云">又拍云</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <%include footer.ejs%>

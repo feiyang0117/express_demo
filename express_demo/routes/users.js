@@ -13,12 +13,16 @@ router.use('/insert', function(req, res, next) {
     };
 
     user.insert(users,function (rs){
-        var data = JSON.stringify(rs);
-        obj = rs;
-        res.redirect("/home");
-        console.log(data);
+        if(rs.success){
+            var data = JSON.stringify(rs);
+            obj = rs;
+            res.redirect("/home");
+            console.log(data);
+        }else{
+            res.end("插入数据失败error")
+        }
+
         //res.end()
-        next(data)
     });
 });
 

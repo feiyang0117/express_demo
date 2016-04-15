@@ -4,19 +4,19 @@
 /*
 * index.ejs
 * */
-$("#test").click(function(){
+$("#tap").click(function(){
     alert(0);
-    $.ajax({
-        url: '/removeData',
-        type:'get',
-        dataType: 'JSON',
-        success: function (data) {
-            console.log(data);
-            // document.title=data.title;
-
-        },
-        error:function(err){
-
-        }
-    })
+    //$.ajax({
+    //    url: '/removeData',
+    //    type:'get',
+    //    dataType: 'JSON',
+    //    success: function (data) {
+    //        console.log(data);
+    //        // document.title=data.title;
+    //
+    //    },
+    //    error:function(err){
+    //
+    //    }
+    //})
 });

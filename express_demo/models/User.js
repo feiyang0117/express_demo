@@ -73,20 +73,42 @@
 var MongoClient = require('mongodb').MongoClient;
 var mongodbUrl = require("../setting");
 var mongodb = require("./db");
+var assert = require('assert');
+
+//每一次先查询数据
+var find = function(cellphone,callback){
+    MongoClient.connect(mongodbUrl.mongodb, function(err, db) {
+        var user = {username:cellphone};
+        db.collection('t').findOne(user,function(err, result) {
+            if(result.username == user.username){
+                return callback({success:false});
+            } else {
+                callback({success:true});
+            }
+        });
+    });
+};
+
 //插入数据
 exports.insert = function(data,callback){
     MongoClient.connect(mongodbUrl.mongodb, function(err, db) {
-        //var json = require('mongodb/test.json');
-        var obj = {username:data.username,password:data.password}
-        db.collection('t').insertOne(obj, function(err, data) {
-            if(err){
-                return callback(err);
+        var obj = {username:data.username,password:data.password};
+        find(obj.username,function(rs){
+            if(rs.success){
+                db.collection('t').insertOne(obj, function(err, data) {
+                    if(err){
+                        return callback(({success:false,message:"注册失败!"}));
+                    }else{
+                        callback({success:true,message:"手机号注册成功了!"});
+                    }
+                    db.close();
+                });
             }else{
-                callback({success:true,message:"成功了!"});
+                callback({success:false,message:"该用户已被注册!"});
             }
-            db.close();
-        })
-    });
+        });
+
+    })
 };
 
 //查新数据
@@ -119,7 +141,7 @@ exports.delete = function(callback){
                 return callback(err);
             }
 
-            collection.remove({safe:true},function(err, object) {   //{_id: ObjectId.createFromHexString(id)}, [['_id','asc']], {},
+            collection.remove({safe:true},function(err, object) {
                 collection.remove();
                 if (!err){
                     callback({success:true});
